@@ -1,12 +1,16 @@
 import axios from 'axios';
 import SlimSelect from 'slim-select'
+
 axios.defaults.headers.common['x-api-key'] =
   'live_1NuflkvHe5UEH3sqKTw8yu41EpLIlEmEzyL3cypmYINhQESTegEfCuGLo138Hhfs';
+
 const catInfo = document.querySelector('.cat-info');
 const select = document.querySelector('.breed-select');
-const loader = document.querySelector('.loader');
-const error = document.querySelector('.error');
+// const loader = document.querySelector('.loader');
+// const error = document.querySelector('.error');
+
 select.addEventListener('click', fetchCatByBreed);
+
 function fetchBreeds() {
   return fetch(
     'https://api.thecatapi.com/v1/breeds?api_key=live_1NuflkvHe5UEH3sqKTw8yu41EpLIlEmEzyL3cypmYINhQESTegEfCuGLo138Hhfs'
@@ -17,6 +21,7 @@ function fetchBreeds() {
     return response.json();
   });
 }
+
 fetchBreeds()
   .then(cats => {
     console.log(cats);
@@ -27,6 +32,7 @@ fetchBreeds()
     })
   })
   .catch(err => console.log(err));
+
 function renderCatsBreeds(cats) {
   const markup = cats
     .map(cat => {
@@ -37,6 +43,7 @@ function renderCatsBreeds(cats) {
     .join('');
   select.innerHTML = markup;
 }
+
 function fetchCatByBreed(e) {
   console.log(e.target.value);
   const CAT_API_INFO = `https://api.thecatapi.com/v1/images/search?breed_ids=${e.target.value}&api_key=live_1NuflkvHe5UEH3sqKTw8yu41EpLIlEmEzyL3cypmYINhQESTegEfCuGLo138Hhfs`;
@@ -56,6 +63,7 @@ function fetchCatByBreed(e) {
     })
     .catch(err => console.log(err));
 }
+
 function renderCatBreedInfo(arr) {
     return arr.map(({url, breeds}) => {
      return `
@@ -69,10 +77,10 @@ function renderCatBreedInfo(arr) {
     })
     .join('');
 }
+
 // function fetchBreeds(){
 //   const BASE_URL = 'https://api.thecatapi.com/v1'
 //   const API_KEY = 'live_1NuflkvHe5UEH3sqKTw8yu41EpLIlEmEzyL3cypmYINhQESTegEfCuGLo138Hhfs'
 //   return axios.get(
 //     'https://api.thecatapi.com/v1/breeds?api_key=live_1NuflkvHe5UEH3sqKTw8yu41EpLIlEmEzyL3cypmYINhQESTegEfCuGLo138Hhfs')
 // }
-// console.log(fetchBreeds());
