@@ -84,3 +84,4 @@ function renderCatBreedInfo(arr) {
 //   return axios.get(
 //     'https://api.thecatapi.com/v1/breeds?api_key=live_1NuflkvHe5UEH3sqKTw8yu41EpLIlEmEzyL3cypmYINhQESTegEfCuGLo138Hhfs')
 // }
+// 
