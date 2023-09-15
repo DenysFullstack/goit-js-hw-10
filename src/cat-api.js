@@ -1,4 +1,3 @@
-
 const select = document.querySelector('.breed-select');
 const loader = document.querySelector('.loader');
 const catInfo = document.querySelector('.cat-info');
@@ -33,15 +32,3 @@ export function fetchCatByBreed(catId) {
     return response.json();
   });
 }
-
-// const CAT_API_INFO = `https://api.thecatapi.com/v1/images/search?breed_ids=${e.target.value}&api_key=live_1NuflkvHe5UEH3sqKTw8yu41EpLIlEmEzyL3cypmYINhQESTegEfCuGLo138Hhfs`;
-// console.log(CAT_API_INFO);
-// return fetch(
-//   `https://api.thecatapi.com/v1/images/search?breed_ids=${e.target.value}&api_key=live_1NuflkvHe5UEH3sqKTw8yu41EpLIlEmEzyL3cypmYINhQESTegEfCuGLo138Hhfs`
-// )
-//   .then(response => {
-//     if (!response.ok) {
-//       throw new Error(response.statusText);
-//     }
-//     return response.json();
-//   })
